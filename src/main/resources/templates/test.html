@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<span th:if="${product.discounts < 1}">Sale!</span>
+<span th:unless="${product.notInStock}">Stock!</span>
+<div th:switch="${user.role}">
+    <p th:case="'admin'">Administrator</p>
+    <p th:case="${roles.manager}">Manager</p>
+    <p th:case="*">Customer</p>
+</div>
+<form data-th-action="@{/addPatients}" data-th-object="${addPatientForm}" method="POST">
+    <label data-th-for="name">Full Name</label>
+    <input type="text" class="form-control" placeholder="Enter Full Name" data-th-field="*{name}"/>
+    <label data-th-for="codePatient">Code</label>
+    <input type="text" class="form-control" placeholder="Enter groupName" data-th-field="*{codePatient}"/>
+    <label data-th-for="dateOfBirth">Date of birth</label>
+    <input type="text" class="form-control" placeholder="Enter Mathematics" data-th-field="*{dateOfBirth}"/>
+    <label data-th-for="address">Address</label>
+    <input type="text" class="form-control" placeholder="Enter Physics" data-th-field="*{address}"/>
+    <label data-th-for="phoneNumber">Phone number</label>
+    <input type="text" class="form-control" placeholder="EnterEnglish English" data-th-field="*{phoneNumber}"/>
+    <label data-th-for="familyDoctor">Family doctor</label>
+    <input type="text" class="form-control" placeholder="EnterEnglish English" data-th-field="*{familyDoctor}"/>
+    <label data-th-for="Gender">Gender</label>
+    <input type="text" class="form-control" placeholder="EnterEnglish English" data-th-field="*{Gender}"/>
+    <input type="submit" class="btn btn-success" value="Add"/>
+</form>
+
+<form action="/addPatients" method="POST">
+    <label for="name">Full Name</label>
+    <input type="text" id="studName" name="name" value=""/>
+    <label for="codePatient">Group name</label>
+    <input type="text" id="groupName" name="codePatient" value=""/>
+    <label for="math">Mathematics</label>
+    <input type="text" id="math" name="math" value="0"/>
+    <!-- ... -->
+    <input type="submit" value="Add"/>
+</form>
+
+</body>
+</html>

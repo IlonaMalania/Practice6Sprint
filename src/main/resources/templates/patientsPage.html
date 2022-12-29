@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Students</title>
+    <!-- See configuration in WebMvcConfig.java -->
+    <link href="/css/app.css" rel="stylesheet" media="screen"/>
+    <link data-th-href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+    <script data-th-src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script data-th-src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script data-th-src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+
+<body>
+<div class="container">
+    <div data-th-fragment="top"
+         style="border:0px solid #ccc;padding:5px;margin-bottom:20px;background-color:#eee;text-align:left;">
+        <a data-th-href="@{/}">Patients</a>
+        | <a data-th-href="@{/getPatientByIndex}">Get patient by index</a>
+        | <a data-th-href="@{/addPatients}">Add Patient</a>
+        | <a data-th-href="@{/deletePatientByIndex}">Delete Patient by index</a>
+    </div>
+
+    <h2>Patients</h2>
+
+    <table class="table_dark">
+        <tr>
+            <th>Patient_code</th>
+            <th>Name</th>
+            <th>Date_of_birth</th>
+            <th>Gender</th>
+            <th>Address</th>
+            <th>Phone_number</th>
+            <th>Family_doctor</th>
+        </tr>
+        <tr data-th-each="patientsInfo : ${allPatients}">
+            <td data-th-utext="${patientsInfo.codePatient}">..</td>
+            <td data-th-utext="${patientsInfo.name}">..</td>
+            <td data-th-utext="${patientsInfo.dateOfBirth}">..</td>
+            <td data-th-utext="${patientsInfo.gender}">..</td>
+            <td data-th-utext="${patientsInfo.address}">..</td>
+            <td data-th-utext="${patientsInfo.phoneNumber}">..</td>
+            <td data-th-utext="${patientsInfo.familyDoctor}">..</td>
+        </tr>
+
+    </table>
+
+</div>
+</body>
+</html>
